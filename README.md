@@ -39,7 +39,9 @@ GIF created with LiceCap
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Challenge: Ensuring that filtering functionality works as expected with different data scenarios.
+
+Solution: Thoroughly test the application, especially the filtering features, to verify correct behavior under various conditions.
 
 ## License
 
