@@ -33,7 +33,7 @@ function addGamesToPage(games) {
     const game_card = document.createElement("div");
 
     // add the class game-card to the list
-    game_card.classList.add("game_card");
+    game_card.classList.add("game-card");
 
     // set the inner HTML using a template literal to display some info
     // about each game
@@ -41,9 +41,11 @@ function addGamesToPage(games) {
     // between the end of the src attribute and the end of the tag ("/>")
     game_card.innerHTML = `
         <div class = "card">
-            <h1>${games[i].name}</h1>
             <img class = "game-img" src="${games[i].img}" alt = ${games[i].name}"/>
+            <h3>${games[i].name}</h3>
             <p>${games[i].description}</p>
+
+            <p>Backers: ${games[i].backers}</P>
         </div>
 
     `;
@@ -173,7 +175,14 @@ const sortedGames = GAMES_JSON.sort((item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+const [firstGame, secondGame, ...otherGames] = sortedGames;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+const topPledgeGame = document.createElement("p");
+topPledgeGame.textContent = `${firstGame.name}`;
+firstGameContainer.appendChild(topPledgeGame);
 
 // do the same for the runner up item
+const secondPledgeGame = document.createElement("p");
+secondPledgeGame.textContent = `${secondGame.name}`;
+secondGameContainer.appendChild(secondPledgeGame);
